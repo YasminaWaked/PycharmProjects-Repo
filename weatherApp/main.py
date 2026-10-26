@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 import requests
+import os
+from dotenv import load_dotenv
 
-API_KEY = 'REDACTED'
+load_dotenv("shh.env")
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
 API_URL = ('https://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}')
 
 def query_api(city):
-    print(API_URL.format(city, API_KEY))
-    data = requests.get(API_URL.format(city, API_KEY)).json()
-    return data
+   print(API_URL.format(city, API_KEY))
+   data = requests.get(API_URL.format(city, API_KEY)).json()
+   return data
 
 @app.route('/')
 def index():

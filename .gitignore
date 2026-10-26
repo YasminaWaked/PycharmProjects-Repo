@@ -24,3 +24,8 @@ handGestureRecognition/data/
 **/.idea/
 **/.DS_Store
 **/.idea/
+
+#Secrets
+**/shh.env
+**/.env
+**/.env.*
